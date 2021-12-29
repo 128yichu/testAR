@@ -8,43 +8,66 @@
     <!-- Import the component -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <style>
+        .item{
+            text-align: center;
+        }
         model-viewer{
             width: 500px;
             height: 400px;
+            margin: auto;
         }
         button{
-            padding-top: 15px;
-            padding-bottom: 15px;
             font-size: 20px;
             background-color: #fde65a;
+            margin-bottom: 20px;
         }
         button a{
             display: block;
             width: 500px;
             text-decoration: none;
             color: black;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        @media screen and (max-width: 576px){
+            model-viewer{
+                width: 100%;
+            }
+            button{
+                width: 100%;
+            }
+            button a{
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
     <div class="item">
-        <model-viewer loading="eager" camera-controls auto-rotate shadow-intensity="1" src="./assets/models/bracelet_horizontal.glb"></model-viewer>
+        <model-viewer loading="eager" camera-controls auto-rotate shadow-intensity="1" skybox-image="./assets/background/galaxy.webp" src="./assets/models/bracelet_horizontal.glb"></model-viewer>
         <button type="button">
             <a href="./ar_bracelet.html">點此進入手環AR</a>
         </button>
     </div>
 
     <div class="item">
-        <model-viewer loading="eager" camera-controls auto-rotate shadow-intensity="1"  src="./assets/models/facemask_horizontal.glb"></model-viewer>
+        <model-viewer loading="eager" camera-controls auto-rotate shadow-intensity="1" skybox-image="./assets/background/room.jpg" src="./assets/models/facemask_horizontal.glb"></model-viewer>
         <button type="button">
             <a href="./ar_facemask.html">點此進入口罩AR</a>
         </button>
     </div>
 
     <div class="item">
-        <model-viewer loading="eager" camera-controls auto-rotate shadow-intensity="1" src="./assets/models/pillow.glb"></model-viewer>
+        <model-viewer loading="eager" camera-controls auto-rotate shadow-intensity="1" skybox-image="./assets/background/place1.jpg" src="./assets/models/pillow.glb"></model-viewer>
         <button type="button">
             <a href="#">(尚未開放)點此進入抱枕AR</a>
+        </button>
+    </div>
+
+    <div class="item">
+        <model-viewer loading="eager" camera-controls auto-rotate shadow-intensity="1" skybox-image="" src="./assets/models/dress.glb"></model-viewer>
+        <button type="button">
+            <a href="#">(尚未開放)點此進入洋裝AR</a>
         </button>
     </div>
 </body>
