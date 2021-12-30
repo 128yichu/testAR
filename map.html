@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地圖</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <style>
+        #map { 
+            height: 100vh;
+        }
+        .leaflet-popup-content-wrapper {
+            width: 100%;
+        }
+
+        model-viewer{
+            width: 100%;
+        }
+        button{
+            font-size: 16px;
+            background-color: #fde65a;
+            display: block;
+            margin: auto;
+        }
+        button a{
+            display: block;
+            width: 250px;
+            text-decoration: none;
+            color: black !important;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        @media screen and (max-width: 576px){
+            model-viewer{
+                width: 100%;
+            }
+            button{
+                width: 100%;
+            }
+            button a{
+                width: 100%;
+            }
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div> 
+
+    <script>
+        // Initialize the map and assign it to a variable for later use
+        // there's a few ways to declare a VARIABLE in javascript.
+        // you might also see people declaring variables using `const` and `let`
+        var map = L.map('map', {
+            // Set latitude and longitude of the map center (required)
+            center: [25.04888, 121.47444],
+            // Set the initial zoom level, values 0-18, where 0 is most zoomed-out (required)
+            zoom: 11
+        });
+        
+    
+        // Create a Tile Layer and add it to the map
+        var tiles = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        minZoom: '15'}).addTo(map);
+    
+        //手環
+        var marker = L.marker(
+        [25.04888, 121.47444],
+        { 
+            // draggable: true,
+            title: "",
+            opacity: 1,
+        });
+        marker.addTo(map).bindPopup('<p1><h2>手環</h2><model-viewer loading="eager" camera-controls auto-rotate shadow-intensity="1" src="./assets/models/bracelet_horizontal.glb"></model-viewer><button type="button"><a href="./ar_bracelet.html">點此進入手環AR</a></button>') .openPopup();
+        
+        //口罩
+        var marker2 = L.marker(
+        [25.06, 121.48],
+        { 
+            title: "",
+            opacity: 1,
+        });
+        marker2.addTo(map).bindPopup('<p1><h2>口罩</h2><model-viewer loading="eager" camera-controls auto-rotate shadow-intensity="1" src="./assets/models/facemask_horizontal.glb"></model-viewer><button type="button"><a href="./ar_facemask.html">點此進入口罩AR</a></button>') .openPopup();
+        
+        //抱枕
+        var marker3 = L.marker(
+        [25.0482, 121.48],
+        { 
+            title: "",
+            opacity: 1,
+        });
+        marker3.addTo(map).bindPopup('<p1><h2>抱枕</h2><model-viewer loading="eager" camera-controls auto-rotate shadow-intensity="1" src="./assets/models/pillow.glb"></model-viewer><button type="button"><a href="./ar_pillow.html">點此進入抱枕AR</a></button>') .openPopup();
+
+        //盒子
+        var marker4 = L.marker(
+        [25.0481, 121.46],
+        { 
+            title: "",
+            opacity: 1,
+        });
+        marker4.addTo(map).bindPopup('<p1><h2>盒子</h2><model-viewer loading="eager" camera-controls auto-rotate shadow-intensity="1" src="./assets/models/box.glb"></model-viewer><button type="button"><a href="./ar_box.html">點此進入盒子AR</a></button>') .openPopup();
+
+    </script>
+</body>
+</html>
