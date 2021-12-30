@@ -40,9 +40,22 @@
                 width: 100%;
             }
         }
+        .toMap{
+            background-color: pink;
+            display: block;
+            margin: auto;
+        }
+        hr{
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
     </style>
 </head>
 <body>
+    <button type="button" class="toMap"><a href="./map.html">進入商品地圖頁面</a></button>
+
+    <hr>
+
     <div class="item">
         <model-viewer loading="eager" camera-controls auto-rotate shadow-intensity="1" skybox-image="./assets/background/galaxy.webp" src="./assets/models/bracelet_horizontal.glb"></model-viewer>
         <button type="button">
@@ -58,17 +71,18 @@
     </div>
 
     <div class="item">
+        <model-viewer loading="eager" camera-controls auto-rotate shadow-intensity="1" skybox-image="" src="./assets/models/box.glb"></model-viewer>
+        <button type="button">
+            <a href="./ar_box.html">點此進入盒子AR</a>
+        </button>
+    </div>
+
+    <div class="item">
         <model-viewer loading="eager" camera-controls auto-rotate shadow-intensity="1" skybox-image="./assets/background/place1.jpg" src="./assets/models/pillow.glb"></model-viewer>
         <button type="button">
             <a href="./ar_pillow.html">(尚未開放)點此進入抱枕AR</a>
         </button>
     </div>
 
-    <div class="item">
-        <model-viewer loading="eager" camera-controls auto-rotate shadow-intensity="1" skybox-image="" src="./assets/models/box.glb"></model-viewer>
-        <button type="button">
-            <a href="./ar_box.html">點此進入盒子AR</a>
-        </button>
-    </div>
 </body>
 </html>
